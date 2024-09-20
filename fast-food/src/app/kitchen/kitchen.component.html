@@ -1,0 +1,31 @@
+
+<ul>
+    @for(order of orders; track $index){
+            <li>{{ order.number }} - {{ order.description }}</li>
+        
+    }
+</ul>
+<h1>Componente cocina</h1>
+<h2>Pendiente a cocinar</h2>
+<ul>
+    @for(order of orders; track $index){
+        @if(order.status == 'pending'){
+            <li>{{ order.number }} - {{ order.description }} 
+                <button (click)="changeStatus(order)"
+                [disabled]="inCooking()"
+                >Cocinar</button>
+            </li>
+        }
+    }
+</ul>
+
+<h2>Pedidos en coccion</h2>
+<ul>
+    @for(order of orders; track $index){
+        @if(order.status == 'cooking'){
+            <li>{{ order.number }} - {{ order.description }}
+            </li>
+            <button (click)="endCook(order)">Pedido terminado!</button>
+        }
+    }
+</ul>

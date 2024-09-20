@@ -1,0 +1,18 @@
+<h2>Point of Sell - POS</h2>
+<form #myForm = "ngForm" (ngSubmit)="submitOrder()">
+    <label for="name">Nombre: </label>
+    <input type="text" [(ngModel)]="order.name" name="name"
+     #name="ngModel"
+     required>
+    @if(name.invalid && (myForm.untouched && myForm.dirty)){
+        <p>El nombre es requerido</p>
+    }
+
+    <br>
+    <br>
+    <label for="description">Pedido: </label>
+    <input type="text" [(ngModel)]="order.description" name="description" required>
+    <br>
+    <br>
+    <button type="submit" [disabled]="myForm.invalid">Ordenar</button>
+</form>

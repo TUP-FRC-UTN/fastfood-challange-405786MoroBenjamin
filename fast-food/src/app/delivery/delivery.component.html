@@ -1,0 +1,10 @@
+<h1>Pedidos listos para entregar</h1>
+<ul>
+    @for(order of orders; track $index){
+        @if(order.status == 'ready'){
+            <li>{{ order.name }} - {{ order.description }}
+                <button (click)="enviarPedido(order)">Entregar</button>
+            </li>
+        }
+    }
+</ul>

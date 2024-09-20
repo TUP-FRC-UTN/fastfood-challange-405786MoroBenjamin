@@ -1,0 +1,12 @@
+<h1>Restaurant Food</h1>
+<p>Pedidos Ingresados</p>
+<div>
+    <ul>
+        @for(order of orders; track $index){
+            <li>{{ order.name }} - {{ order.description }}</li>
+        }
+    </ul>
+</div>
+<app-delivery [orders]="orders"></app-delivery>
+<app-point-of-sell (orderEmit)="addOrder()"/>
+<app-kitchen [orders]="orders"></app-kitchen>
